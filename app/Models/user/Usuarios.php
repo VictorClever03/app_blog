@@ -13,9 +13,9 @@ class Usuarios {
 
    
 
-    public function checalogin($nome,$senha){
-        $this->db->query("SELECT * FROM escola WHERE nome=:nome");
-        $this->db->bind(':nome',$nome);
+    public function checalogin($email,$senha){
+        $this->db->query("SELECT * FROM usuarios WHERE email=:email");
+        $this->db->bind(':email',$email);
         $this->db->executa();
         if($this->db->executa() AND $this->db->total()):
             $resultado=$this->db->resultado();
@@ -30,9 +30,9 @@ class Usuarios {
             return false;
         endif;
     }
-    public function checanome(string $nome){
-        $this->db->query("SELECT nome FROM escola WHERE nome=:nome");
-        $this->db->bind(':nome',$nome);
+    public function checaEmail(string $email){
+        $this->db->query("SELECT email FROM usuarios WHERE email=:email");
+        $this->db->bind(':email',$email);
         $this->db->executa();
         if($this->db->executa() AND $this->db->total()):
             return true;
@@ -40,12 +40,13 @@ class Usuarios {
             return false;
         endif;
     }
-    public function storeuser($dados){
-        $this->db->query("INSERT INTO escola(nome, numero, senha, imagem) VALUES(:nome, :telefone, :senha, :imagem)");
+    public function storeUser($dados){
+        $this->db->query("INSERT INTO usuarios(nome, senha, adm, email) VALUES(:nome, :senha, :nivel, :email)");
         $this->db->bind(':nome',$dados['nome']);
-        $this->db->bind(':telefone',$dados['telefone']);
         $this->db->bind(':senha',$dados['senha']);
-        $this->db->bind(':imagem',$dados['imagem']);
+        $this->db->bind(':nivel','1');
+        $this->db->bind(':email',$dados['email']);
+        
         if($this->db->executa() AND $this->db->total()):
             return true;
         else:

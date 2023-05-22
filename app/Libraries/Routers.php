@@ -20,7 +20,13 @@ class Routers
     $router->get("/blog", handler:"Home:blog");
     $router->get("/contact", handler:"Home:contact");
     $router->get("/login", handler:"Home:login");
+    $router->get("/sair", handler:"Home:sair");
     $router->get("/createUser", handler:"Home:create");
+    
+    // autentification
+    $router->post("/createUser", handler:"Home:create");
+    $router->post("/login", handler:"Home:login");
+
 
 
 

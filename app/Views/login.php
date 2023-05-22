@@ -1,3 +1,6 @@
+<?php
+use App\Helpers\Sessao;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,10 +32,15 @@
   <!-- Template Main CSS File -->
   <link href="<?= asset("assets/css/main.css") ?>" rel="stylesheet">
 
+  <script src="<?=asset(JQUERY)?>"></script>
+  <script src="<?=asset(NOTIFY)?>"></script>
+
 
 </head>
 
 <body class="page-index">
+<?=Sessao::notify("auth");?>
+
 
   <!-- ======= Header ======= -->
   <header id="header" class="header d-flex align-items-center fixed-top">
@@ -53,9 +61,19 @@
           <li><a href="<?= URL ?>/about" class="<?= $title == 'about' ? 'active' : '' ?>">Sobre</a></li>
           <li><a href="<?= URL ?>/cursos" class="<?= $title == 'cursos' ? 'active' : '' ?>">Cursos</a></li>
           <li><a href="<?= URL ?>/team" class="<?= $title == 'team' ? 'active' : '' ?>">Team</a></li>
-          <li><a href="<?= URL ?>/blog" class="<?= $title == 'blog' ? 'active' : '' ?>">Blog</a></li>
+          <!--  -->
+          <?php if (isset($_SESSION['BlogUser_id'])) : ?>
+            <li><a href="<?= URL ?>/blog" class="<?= $title == 'blog' ? 'active' : '' ?>">Blog</a></li>
+          <?php else : echo '';
+          endif; ?>
+
           <li><a href="<?= URL ?>/contact" class="<?= $title == 'contact' ? 'active' : '' ?>">Contact</a></li>
-          <li style=" margin-left: 10px; background-color: #56B8E6;" class="p-2 rounded-2 btn "><a href="<?= URL ?>/login" class="p-0 <?= $title == 'login' ? 'active' : '' ?>">Login</a></li>
+
+          <?php if (!isset($_SESSION['BlogUser_id'])) : ?>
+            <li style=" margin-left: 10px; background-color: #56B8E6;" class="p-2 rounded-2 btn "><a href="<?= URL ?>/login" class="p-0 <?= $title == 'login' ? 'active' : '' ?>">Login</a></li>
+          <?php else : ?>
+            <li style=" margin-left: 10px; background-color: #56B8E6;" class="p-2 rounded-2 btn "><a href="<?= URL ?>/sair" class="p-0 <?= $title == 'login' ? 'active' : '' ?>">sair</a></li>
+          <?php endif; ?>
         </ul>
       </nav><!-- .navbar -->
 
@@ -68,19 +86,19 @@
       <div class="row">
         <div class="col-xl-4">
           <h2 class="fs-1 text-center mb-3">Login</h2>
-          <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+          <form action="<?=URL?>/login" method="post" role="form" id="formAuth">
             <div class="mb-3">
               <label for="exampleInputText1" class="form-label text-white">Email</label>
-              <input type="text" class="form-control" id="exampleInputText1" aria-describedby="textHelp" placeholder="ex: Ezequiel@gmail.com">
-              <div id="textHelp" class="invalid-feedback">We'll never share your texts with anyone else.</div>
+              <input type="text" class="form-control <?=  $dados['erro_email']?'is-invalid':'' ?>" id="exampleInputText1" aria-describedby="textHelp" placeholder="ex: Ezequiel@gmail.com" name="email" value="<?=$dados['email']?>">
+              <div id="textHelp" class="invalid-feedback"><?=$dados['erro_email']?></div>
             </div>
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label text-white">Senha</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" aria-describedby="passwordHelp" placeholder="****">
-              <div id="passwordHelp" class="invalid-feedback">We'll never share your password with anyone else.</div>
+              <input type="password" class="form-control <?=  $dados['erro_senha']?'is-invalid':'' ?>" id="exampleInputPassword1" aria-describedby="passwordHelp" placeholder="****" name="senha" value="<?=$dados['senha']?>">
+              <div id="passwordHelp" class="invalid-feedback"><?=$dados['erro_senha']?></div>
               <a href="<?=URL?>/createUser" id="passwordHelp" class="">Criar conta</a>
             </div>
-            <div class="text-center"><button type="submit" class="btn-get-started border-0 ">Entrar</button></div>
+            <div class="text-center"><button type="submit" class="btn-get-started border-0" name="login" value="submit">Entrar</button></div>
           </form>
         </div>
 

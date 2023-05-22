@@ -151,29 +151,23 @@ class Sessao
 
 
     // # Variaveis importantes para sessoes
-    public static function nivel2(){
-        if(isset($_SESSION['usuarioC_id'])):
-            return true;
-        else:
-            return false;    
-        endif;
-    }
+   
     public static function nivel1(){
-        if(isset($_SESSION['usuarioS_id'])):
+        if(isset($_SESSION['BlogUser_id'])):
             return true;
         else:
             return false;    
         endif;
     }
     public static function nivel0(){
-        if(isset($_SESSION['usuarios_id'])):
+        if(isset($_SESSION['BlogUserA_id'])):
             return true;
         else:
             return false;    
         endif;
     }
     public static function restrito1($id){
-        if($id!=$_SESSION['usuarios_id']):
+        if($id!=$_SESSION['BlogUser_id']):
             return true;
         else:
             return false;    

@@ -26,9 +26,13 @@
   <link href="<?= asset("assets/vendor/swiper/swiper-bundle.min.css") ?>" rel="stylesheet">
   <link href="<?= asset("assets/vendor/remixicon/remixicon.css") ?>" rel="stylesheet">
 
+
+
   <!-- Template Main CSS File -->
   <link href="<?= asset("assets/css/main.css") ?>" rel="stylesheet">
 
+  <script src="<?= asset(JQUERY) ?>"></script>
+  <script src="<?= asset(NOTIFY) ?>"></script>
 
 </head>
 
@@ -48,14 +52,25 @@
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
 
       <nav id="navbar" class="navbar">
-      <ul>
+        <ul>
           <li><a href="<?= URL ?>/home" class="<?= $title == 'home' ? 'active' : '' ?>">Home</a></li>
           <li><a href="<?= URL ?>/about" class="<?= $title == 'about' ? 'active' : '' ?>">Sobre</a></li>
           <li><a href="<?= URL ?>/cursos" class="<?= $title == 'cursos' ? 'active' : '' ?>">Cursos</a></li>
           <li><a href="<?= URL ?>/team" class="<?= $title == 'team' ? 'active' : '' ?>">Team</a></li>
-          <li><a href="<?= URL ?>/blog" class="<?= $title == 'blog' ? 'active' : '' ?>">Blog</a></li>
+          <!--  -->
+          <?php if (isset($_SESSION['BlogUser_id'])) : ?>
+            <li><a href="<?= URL ?>/blog" class="<?= $title == 'blog' ? 'active' : '' ?>">Blog</a></li>
+          <?php else : echo '';
+          endif; ?>
+
           <li><a href="<?= URL ?>/contact" class="<?= $title == 'contact' ? 'active' : '' ?>">Contact</a></li>
-          <li style=" margin-left: 10px; background-color: #56B8E6;" class="p-2 rounded-2 btn "><a href="<?= URL ?>/login" class="p-0 <?= $title == 'login' ? 'active' : '' ?>">Login</a></li>
+
+          <?php if (!isset($_SESSION['BlogUser_id'])) : ?>
+            <li style=" margin-left: 10px; background-color: #56B8E6;" class="p-2 rounded-2 btn "><a href="<?= URL ?>/login" class="p-0 <?= $title == 'login' ? 'active' : '' ?>">Login</a></li>
+          <?php else : ?>
+            <li style=" margin-left: 10px; background-color: #56B8E6;" class="p-2 rounded-2 btn "><a href="<?= URL ?>/sair" class="p-0 <?= $title == 'login' ? 'active' : '' ?>">sair</a></li>
+          <?php endif; ?>
+
         </ul>
       </nav><!-- .navbar -->
 
