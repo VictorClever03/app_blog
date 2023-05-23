@@ -13,7 +13,7 @@ use App\Helpers\Sessao;
               postagens, atualização dos conteúdos entre alunos, professores e a coordenação em geral. </p>
           </blockquote>
           <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
-            <a href="about.html" class="btn-get-started">Saber mais</a>
+            <a href="<?=URL?>/about" class="btn-get-started">Saber mais</a>
             <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ"
               class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Ver
                 Video</span></a>

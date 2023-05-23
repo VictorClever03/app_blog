@@ -14,19 +14,14 @@
 
         }
 
-        h1 {
-            font-size: 180px;
-            font-weight: 700;
-            color: #181926;
-            margin: 2rem 0 0 0;
-            line-height: 150px;
-        }
-
-        h2 {
-            color: #4154f1;
-        }
+       
         a{
+          position: fixed;
+          top: 50%;
+          left:50%;
+          transform: translate(-50%, -50%);
             text-decoration: none;
+           
         }
         .btn {
             color: #fff;
@@ -49,10 +44,9 @@
         <div class="container">
 
             <section class="section error-404 min-vh-100 d-flex flex-column align-items-center justify-content-center">
-                <h1>404</h1>
-                <h2>A página requerida não existe no nosso servidor.</h2>
-                <a class="btn" href="<?= URL ?>">Retorne</a><br>
-                <img src="<?= asset("img/not-found.svg") ?>" class="img-fluid py-5" alt="Page Not Found">
+           
+              <img src="<?= asset("img/Oops! 404 Error with a broken robot-rafiki.svg") ?>" class="img-fluid py-5" alt="Page Not Found">
+              <a class="btn" href="<?= URL ?>">Retorne</a><br>
                 <div class="credits">
                     Made by Victor Clever
                 </div>

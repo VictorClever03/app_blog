@@ -51,98 +51,43 @@ class  Home  extends Controller
   }
   public function contact()
   {
+    $form = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+    // var_dump($form);
+    if (isset($form['send'])) {
+      $dados = ['nome' => trim($form['name']), 'email' => trim($form['email']), 'assunto' => trim($form['subject']), 'mensagem' => trim($form['message']), 'error' => ''];
+
+      if (in_array("", $form)) {
+        if (empty($form['name']) || empty($form['email']) || empty($form['subject']) || empty($form['message'])) {
+          $dados['error'] = "Preencha todos os campos";
+        }
+      }else {
+        if(Valida::email($dados['email'])){
+          $dados['error'] = "Preencha corretamente o email";
+        }else{
+
+          $salvar = $this->Data->storeMessage($dados);
+          if ($salvar) {
+            Sessao::notify('message', 'Mensagem enviada', null, null, "('#contactForm')");
+            
+          }else{
+            Sessao::notify('message', 'Mensagem não enviada', "error", null, "('#contactForm')");
+
+          }
+        }
+      }
+    } else {
+      $dados = ['nome' => '', 'email' => '', 'assunto' => '', 'mensagem' => '', 'error' => ''];
+    }
     $file = 'contact';
     $title = 'contact';
-    return $this->view('layouts/user/app', compact('file', 'title'));
-  }
-  // Autenticacao do usuario
-  public function login()
-  {
-    if (Sessao::nivel1()) :
-      Url::redireciona('home');
-    endif;
-          // var_dump($_SESSION);
-
-    $formulario = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-    // var_dump($formulario);
-    if (isset($formulario['login'])) :
-      $dados = [
-        'email' => trim($formulario['email']),
-        'senha' => trim($formulario['senha']),
-        'erro_email' => '',
-        'erro_senha' => ''
-      ];
-
-      if (in_array("", $formulario)) :
-
-        if (empty($formulario['email'])) :
-          $dados['erro_email'] = "preencha o campo email";
-        endif;
-
-        if (empty($formulario['senha'])) :
-          $dados['erro_senha'] = "preencha o campo senha";
-        endif;
-
-      else :
-        if (Valida::email($dados['email'])) {
-          $dados['erro_email'] = "preencha correctamente o campo email";
-        } else {
-          $checarlogin = $this->Data->checalogin($dados['email'], $dados['senha']);
-          // var_dump($checarlogin);
-          // exit;
-          if ($checarlogin) :
-
-            Url::redireciona('home');
-            $this->criarsessao($checarlogin);
-            Sessao::notify('auth', 'Login realizado com sucesso', null, null, null);
-            exit;
-          // Sessao::browser("browser","login","login feito com sucesso");
-
-          else :
-            Sessao::notify('auth', 'Nome ou senha estão errados', "error", null, "('#formAuth')");
-
-            $dados['erro_email'] = "Dados invalidos";
-            $dados['erro_senha'] = "Dados invalidos";
-          endif;
-        }
-
-
-      endif;
-    //  var_dump($formulario);
-    else :
-      $dados = [
-        'email' => '',
-        'senha' => '',
-        'erro_email' => '',
-        'erro_senha' => ''
-      ];
-    endif;
-
-    $title = 'login';
-    return $this->view('login', compact('title', 'dados'));
+    return $this->view('layouts/user/app', compact('file', 'title','dados'));
   }
 
-  private function  criarsessao(array $usuario)
-  {
-
-    $_SESSION['BlogUser_id'] = $usuario['id_usuarios'];
-    $_SESSION['BlogUser_nome'] = $usuario['nome'];
-    $_SESSION['BlogUser_email'] = $usuario['email'];
-    // $_SESSION['BlogUser_img'] = !empty($usuario['imagem']) ? URL . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . $usuario['imagem'] : URL . '/public/img/user-logo.jpg';
-  }
-  public function sair()
-  {
-    unset($_SESSION['BlogUser_id']);
-    unset($_SESSION['BlogUser_nome']);
-    unset($_SESSION['BlogUser_email']);
-    // unset($_SESSION['BlogUser_img']);
-    session_destroy();
-    Url::redireciona('login');
-  }
   public function create()
   {
     if (Sessao::nivel1() || Sessao::nivel0()) :
       session_destroy();
+      Url::redireciona("createUser");
     endif;
     $form = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
@@ -164,14 +109,14 @@ class  Home  extends Controller
         } elseif (Valida::length_senha($dados['senha'])) {
           Sessao::sms("valid", "Mínimo de caracteres 8", "alert alert-danger");
           $dados['error'] = "Preencha preencha a senha";
-        }elseif($this->Data->checaEmail($dados['email'])){
+        } elseif ($this->Data->checaEmail($dados['email'])) {
           Sessao::sms("valid", "Email já existente no sistema", "alert alert-danger");
           $dados['error'] = "Não podem existir duas contas com mesmo email";
         } else {
           $dados['senha'] = Valida::pass_segura($dados['senha']);
           $create = $this->Data->storeUser($dados);
           if ($create) {
-            URL::redireciona("login");
+            Url::redireciona("login");
             Sessao::notify('auth', 'Conta criada', null, null, null);
             exit;
           }

@@ -19,19 +19,32 @@ class Routers
     $router->get("/team", handler:"Home:team");
     $router->get("/blog", handler:"Home:blog");
     $router->get("/contact", handler:"Home:contact");
-    $router->get("/login", handler:"Home:login");
-    $router->get("/sair", handler:"Home:sair");
+    $router->post("/contact", handler:"Home:contact");
+    $router->get("/login", handler:"Login:index");
+    $router->get("/sair", handler:"Login:sair");
     $router->get("/createUser", handler:"Home:create");
     
     // autentification
     $router->post("/createUser", handler:"Home:create");
-    $router->post("/login", handler:"Home:login");
-
-
-
-
+    $router->post("/login", handler:"Login:index");
+    
     $router->group("error");
     $router->get("/{errcode}", handler:"Error:index");
+
+    // admin routers
+    $router->namespace("App\Controllers\Admin");
+    $router->group("admin");
+    $router->get("/", handler:"Login:index");
+    $router->post("/", handler:"Login:index");
+    $router->get("/login", handler:"Login:index");
+    $router->post("/login", handler:"Login:index");
+    $router->get("/sair", handler:"Login:sair");
+    $router->get("/home", handler:"Home:index");
+    $router->post("/deleteMessage/{id}", handler:"Home:deleteMessage");
+
+
+
+
     /**
      * This method executes the routes
      */

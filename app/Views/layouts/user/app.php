@@ -1,3 +1,7 @@
+<?php
+
+use App\Helpers\Sessao;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,8 +14,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="<?= asset("assets/img/favicon.png") ?>" rel="icon">
-  <link href="<?= asset("assets/img/apple-touch-icon.png") ?>" rel="apple-touch-icon">
+  <link href="<?=asset("img/favicon-32x32.png")?>" rel="icon">
+ 
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,12 +41,13 @@
 </head>
 
 <body class="page-index">
+<?=Sessao::notify("message")?>
 
   <!-- ======= Header ======= -->
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="<?=URL?>" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1 class="d-flex align-items-center">Blog IPPA</h1>
@@ -90,7 +95,7 @@
       <div class="container">
         <div class="row gy-4">
           <div class="col-lg-5 col-md-12 footer-info">
-            <a href="index.html" class="logo d-flex align-items-center">
+            <a href="<?=URL?>" class="logo d-flex align-items-center">
               <span>Blog IPPA</span>
             </a>
             <p>Um Blog informativo e interativo no IPPA permitirá a fácil comunicação verbal e visual por meio de
@@ -138,10 +143,8 @@
           &copy; Copyright <strong><span>Blog IPPA</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nova-bootstrap-business-template/ -->
+       
+      
           Made by <a href="#">Victor Clever</a>
         </div>
       </div>
