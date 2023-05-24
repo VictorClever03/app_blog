@@ -1,6 +1,7 @@
 <?php
 
 use App\Helpers\Sessao;
+use App\Helpers\ResumirTexto as Text;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,8 +15,8 @@ use App\Helpers\Sessao;
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="<?=asset("img/favicon-32x32.png")?>" rel="icon">
- 
+  <link href="<?= asset("img/favicon-32x32.png") ?>" rel="icon">
+
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,16 +42,16 @@ use App\Helpers\Sessao;
 </head>
 
 <body class="page-index">
-<?=Sessao::notify("message")?>
+  <?= Sessao::notify("message") ?>
 
   <!-- ======= Header ======= -->
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-      <a href="<?=URL?>" class="logo d-flex align-items-center">
+      <a href="<?= URL ?>" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="d-flex align-items-center">Blog IPPA</h1>
+        <h1 class="d-flex align-items-center"><span class="rounded-5 p-2" style="background:#56B8E6;"><?=Text::perfil($_SESSION['BlogUser_nome'])?></span>&nbsp; Blog IPPA</h1>
       </a>
 
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
@@ -59,20 +60,24 @@ use App\Helpers\Sessao;
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="<?= URL ?>/home" class="<?= $title == 'home' ? 'active' : '' ?>">Home</a></li>
-          <li><a href="<?= URL ?>/about" class="<?= $title == 'about' ? 'active' : '' ?>">Sobre</a></li>
+          <!-- sobre -->
+          <?php if (!isset($_SESSION['BlogUser_id'])) : ?>
+
+            <li><a href="<?= URL ?>/about" class="<?= $title == 'about' ? 'active' : '' ?>">Sobre</a></li>
+
+          <?php endif; ?>
+
           <li><a href="<?= URL ?>/cursos" class="<?= $title == 'cursos' ? 'active' : '' ?>">Cursos</a></li>
           <li><a href="<?= URL ?>/team" class="<?= $title == 'team' ? 'active' : '' ?>">Team</a></li>
-          <!--  -->
-          <?php if (isset($_SESSION['BlogUser_id'])) : ?>
-            <li><a href="<?= URL ?>/blog" class="<?= $title == 'blog' ? 'active' : '' ?>">Blog</a></li>
-          <?php else : echo '';
-          endif; ?>
-
-          <li><a href="<?= URL ?>/contact" class="<?= $title == 'contact' ? 'active' : '' ?>">Contact</a></li>
+          <!-- blog -->
 
           <?php if (!isset($_SESSION['BlogUser_id'])) : ?>
+            <li><a href="<?= URL ?>/contact" class="<?= $title == 'contact' ? 'active' : '' ?>">Contact</a></li>
+
             <li style=" margin-left: 10px; background-color: #56B8E6;" class="p-2 rounded-2 btn "><a href="<?= URL ?>/login" class="p-0 <?= $title == 'login' ? 'active' : '' ?>">Login</a></li>
           <?php else : ?>
+            <li><a href="<?= URL ?>/blog" class="<?= $title == 'blog' ? 'active' : '' ?>">Blog</a></li>
+
             <li style=" margin-left: 10px; background-color: #56B8E6;" class="p-2 rounded-2 btn "><a href="<?= URL ?>/sair" class="p-0 <?= $title == 'login' ? 'active' : '' ?>">sair</a></li>
           <?php endif; ?>
 
@@ -95,7 +100,7 @@ use App\Helpers\Sessao;
       <div class="container">
         <div class="row gy-4">
           <div class="col-lg-5 col-md-12 footer-info">
-            <a href="<?=URL?>" class="logo d-flex align-items-center">
+            <a href="<?= URL ?>" class="logo d-flex align-items-center">
               <span>Blog IPPA</span>
             </a>
             <p>Um Blog informativo e interativo no IPPA permitirá a fácil comunicação verbal e visual por meio de
@@ -143,8 +148,8 @@ use App\Helpers\Sessao;
           &copy; Copyright <strong><span>Blog IPPA</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
-       
-      
+
+
           Made by <a href="#">Victor Clever</a>
         </div>
       </div>

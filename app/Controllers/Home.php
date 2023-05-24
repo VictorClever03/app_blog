@@ -23,6 +23,9 @@ class  Home  extends Controller
   }
   public function about()
   {
+    if (Sessao::nivel1()) :
+      Url::redireciona('home');
+    endif;
     $file = 'about';
     $title = 'about';
     return $this->view('layouts/user/app', compact('file', 'title'));
@@ -51,6 +54,9 @@ class  Home  extends Controller
   }
   public function contact()
   {
+    if (Sessao::nivel1()) :
+      Url::redireciona('home');
+    endif;
     $form = filter_input_array(INPUT_POST, FILTER_DEFAULT);
     // var_dump($form);
     if (isset($form['send'])) {
