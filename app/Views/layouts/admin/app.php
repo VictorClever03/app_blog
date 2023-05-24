@@ -10,28 +10,28 @@ use App\Helpers\Sessao;
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title><?=$title?></title>
+  <title><?= $title ?></title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="<?=asset("img/favicon-32x32.png")?>" rel="icon">
+  <link href="<?= asset("img/favicon-32x32.png") ?>" rel="icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="<?=asset("assets1/vendor/bootstrap/css/bootstrap.min.css")?>" rel="stylesheet">
-  <link href="<?=asset("assets1/vendor/bootstrap-icons/bootstrap-icons.css")?>" rel="stylesheet">
-  <link href="<?=asset("assets1/vendor/boxicons/css/boxicons.min.css")?>" rel="stylesheet">
-  <link href="<?=asset("assets1/vendor/quill/quill.snow.css")?>" rel="stylesheet">
-  <link href="<?=asset("assets1/vendor/quill/quill.bubble.css")?>" rel="stylesheet">
-  <link href="<?=asset("assets1/vendor/remixicon/remixicon.css")?>" rel="stylesheet">
-  <link href="<?=asset("assets1/vendor/simple-datatables/style.css")?>" rel="stylesheet">
+  <link href="<?= asset("assets1/vendor/bootstrap/css/bootstrap.min.css") ?>" rel="stylesheet">
+  <link href="<?= asset("assets1/vendor/bootstrap-icons/bootstrap-icons.css") ?>" rel="stylesheet">
+  <link href="<?= asset("assets1/vendor/boxicons/css/boxicons.min.css") ?>" rel="stylesheet">
+  <link href="<?= asset("assets1/vendor/quill/quill.snow.css") ?>" rel="stylesheet">
+  <link href="<?= asset("assets1/vendor/quill/quill.bubble.css") ?>" rel="stylesheet">
+  <link href="<?= asset("assets1/vendor/remixicon/remixicon.css") ?>" rel="stylesheet">
+  <link href="<?= asset("assets1/vendor/simple-datatables/style.css") ?>" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="<?=asset("assets1/css/style.css")?>" rel="stylesheet">
+  <link href="<?= asset("assets1/css/style.css") ?>" rel="stylesheet">
 
   <script src="<?= asset(JQUERY) ?>"></script>
   <script src="<?= asset(NOTIFY) ?>"></script>
@@ -41,14 +41,14 @@ use App\Helpers\Sessao;
 </head>
 
 <body>
-<?=Sessao::notify("auth1")?>
-<?=Sessao::notify("success")?>
-<?=Sessao::notify("error")?>
+  <?= Sessao::notify("auth1") ?>
+  <?= Sessao::notify("success") ?>
+  <?= Sessao::notify("error") ?>
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="<?=URL?>/admin/home" class="logo d-flex align-items-center">
+      <a href="<?= URL ?>/admin/home" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">Blog IPPA</span>
       </a>
@@ -71,7 +71,7 @@ use App\Helpers\Sessao;
           </a>
         </li><!-- End Search Icon-->
 
-        <a href="<?=URL?>" class="btn btn-primary" target="__blank">Blog</a>
+        <a href="<?= URL ?>" class="btn btn-primary" target="__blank">Blog</a>
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
@@ -80,26 +80,26 @@ use App\Helpers\Sessao;
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>Kevin Anderson</h6>
+              <h6><?=$_SESSION['BlogUserA_nome']?></h6>
               <span>Admin</span>
             </li>
             <li>
               <hr class="dropdown-divider">
             </li>
 
-          <li>
+            <li>
               <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
                 <i class="bi bi-gear"></i>
                 <span>Config</span>
               </a>
             </li>
-            
+
             <li>
               <hr class="dropdown-divider">
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="<?=URL?>/admin/sair">
+              <a class="dropdown-item d-flex align-items-center" href="#" data-bs-toggle="modal" data-bs-target="#modalSS">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sair</span>
               </a>
@@ -119,7 +119,7 @@ use App\Helpers\Sessao;
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="index.html">
+        <a class="nav-link <?= ucwords($title) == 'Home' ? '' : 'collapsed' ?>" href="<?= URL ?>/admin/home">
           <i class="bi bi-grid"></i>
           <span>Painel Principal</span>
         </a>
@@ -144,7 +144,7 @@ use App\Helpers\Sessao;
           </li>
         </ul>
       </li><!-- End Blog Nav -->
-      
+
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-person"></i><span>Usuários</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -164,38 +164,94 @@ use App\Helpers\Sessao;
       </li><!-- End Usuarios Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.html">
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-award"></i><span>Quadro de honra</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="tables-general.html">
+              <i class="bi bi-circle"></i><span>Novo</span>
+            </a>
+          </li>
+          <li>
+            <a href="tables-data.html">
+              <i class="bi bi-circle"></i><span>Listar</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Usuarios Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link <?= ucwords($title) == 'Config' ? '' : 'collapsed' ?>" href="<?= URL ?>/admin/config">
           <i class="bi bi-gear"></i>
           <span>Config</span>
         </a>
       </li><!-- End config Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="<?=URL?>/admin/sair">
+        <a class="nav-link collapsed" href="#" data-bs-toggle="modal" data-bs-target="#modalSS">
           <i class="bi bi-box-arrow-in-right"></i>
           <span>Sair</span>
         </a>
       </li><!-- End Login Page Nav -->
 
-   
 
-   
+
+
 
     </ul>
 
+
+
+
+    <script>
+      var modalId = document.getElementById('modalId');
+
+      modalId.addEventListener('show.bs.modal', function(event) {
+        // Button that triggered the modal
+        let button = event.relatedTarget;
+        // Extract info from data-bs-* attributes
+        let recipient = button.getAttribute('data-bs-whatever');
+
+        // Use above variables to manipulate the DOM
+      });
+    </script>
+
+
   </aside><!-- End Sidebar-->
- <!-- ================================================================= -->
- <?php
+
+  <!-- ================================================================= -->
+  <?php
   $file = dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . str_replace('.php', '', $file) . '.php';
   require_once $file;
 
   ?>
   <!-- =============================================================== -->
+  <!-- Modal -->
+  <div class="modal fade" id="modalSS" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTitleId">Sessão</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            Tem certeza que quer terminar?
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          <a href="<?= URL ?>/admin/sair" class="btn btn-primary">Sair</a>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
-    
+
     <div class="credits">
-      
+
       Made by <a href="https://bootstrapmade.com/">Clever</a>
     </div>
   </footer><!-- End Footer -->
@@ -203,17 +259,17 @@ use App\Helpers\Sessao;
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="<?=asset("assets1/vendor/apexcharts/apexcharts.min.js")?>"></script>
-  <script src="<?=asset("assets1/vendor/bootstrap/js/bootstrap.bundle.min.js")?>"></script>
-  <script src="<?=asset("assets1/vendor/chart.js/chart.min.js")?>"></script>
-  <script src="<?=asset("assets1/vendor/echarts/echarts.min.js")?>"></script>
-  <script src="<?=asset("assets1/vendor/quill/quill.min.js")?>"></script>
-  <script src="<?=asset("assets1/vendor/simple-datatables/simple-datatables.js")?>"></script>
-  <script src="<?=asset("assets1/vendor/tinymce/tinymce.min.js")?>"></script>
-  <script src="<?=asset("assets1/vendor/php-email-form/validate.js")?>"></script>
+  <script src="<?= asset("assets1/vendor/apexcharts/apexcharts.min.js") ?>"></script>
+  <script src="<?= asset("assets1/vendor/bootstrap/js/bootstrap.bundle.min.js") ?>"></script>
+  <script src="<?= asset("assets1/vendor/chart.js/chart.min.js") ?>"></script>
+  <script src="<?= asset("assets1/vendor/echarts/echarts.min.js") ?>"></script>
+  <script src="<?= asset("assets1/vendor/quill/quill.min.js") ?>"></script>
+  <script src="<?= asset("assets1/vendor/simple-datatables/simple-datatables.js") ?>"></script>
+  <script src="<?= asset("assets1/vendor/tinymce/tinymce.min.js") ?>"></script>
+  <script src="<?= asset("assets1/vendor/php-email-form/validate.js") ?>"></script>
 
   <!-- Template Main JS File -->
-  <script src="<?=asset("assets1/js/main.js")?>"></script>
+  <script src="<?= asset("assets1/js/main.js") ?>"></script>
 
 </body>
 

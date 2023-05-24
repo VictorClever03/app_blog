@@ -30,7 +30,7 @@ class Home extends Controller
 //     var_dump($user,$contact,$post);
 // exit;
     $file = 'admin/home';
-    $title = 'admin/home';
+    $title = 'home';
     return $this->view('layouts/admin/app', compact('file', 'title', 'messages','user','contact','post'));
   }
   public function deleteMessage($id){

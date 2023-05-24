@@ -40,6 +40,9 @@ class Routers
     $router->post("/login", handler:"Login:index");
     $router->get("/sair", handler:"Login:sair");
     $router->get("/home", handler:"Home:index");
+    $router->get("/config", handler:"Config:index");
+    $router->post("/config", handler:"Config:index");
+    $router->post("/changename", handler:"Config:changename");
     $router->post("/deleteMessage/{id}", handler:"Home:deleteMessage");
 
 
