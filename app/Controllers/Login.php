@@ -84,7 +84,7 @@ public function __construct(){
   }
 
   private function  criarsessao(array $usuario)
-  {
+  { 
 
     $_SESSION['BlogUser_id'] = $usuario['id_usuarios'];
     $_SESSION['BlogUser_nome'] = $usuario['nome'];
