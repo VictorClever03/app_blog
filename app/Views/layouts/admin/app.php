@@ -1,6 +1,7 @@
 <?php
 
 use App\Helpers\Sessao;
+use App\Helpers\ResumirTexto as text;
 ?>
 
 <!DOCTYPE html>
@@ -74,8 +75,9 @@ use App\Helpers\Sessao;
         <a href="<?= URL ?>" class="btn btn-primary" target="__blank">Blog</a>
         <li class="nav-item dropdown pe-3">
 
-          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+          <a class="nav-link nav-profile d-flex align-items-center pe-0 " href="#" data-bs-toggle="dropdown">
+            <span class="d-none d-md-block dropdown-toggle p-2 w-100 h-100  bg-primary text-white" style="border-radius:25px;">  <?=text::perfil($_SESSION['BlogUserA_nome'])?>
+</span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">

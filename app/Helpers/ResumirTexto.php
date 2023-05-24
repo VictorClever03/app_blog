@@ -31,4 +31,15 @@ class ResumirTexto
     $resultado = ($limite <= $totalpalavras ? $arrayResumido . $continue : $array);
     return $resultado;
   }
+  public static function perfil($name){
+    $frase =$name; 
+    $palavras = explode(" ", $frase); // Quebra a frase em um array de palavras
+     $iniciais = array_map(function($palavra) { 
+      return strtoupper(substr($palavra, 0, 1)); 
+       }, $palavras);
+       
+        $resultado = implode("", $iniciais); // Junta as iniciais em uma única string echo $resultado; // 
+        echo $resultado;
+
+  }
 }
