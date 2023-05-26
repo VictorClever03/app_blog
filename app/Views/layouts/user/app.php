@@ -53,7 +53,7 @@ use App\Helpers\ResumirTexto as Text;
       <a href="<?= URL ?>" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="d-flex align-items-center"><span class="rounded-5 p-2" style="background:#56B8E6;"><?=Text::perfil($_SESSION['BlogUser_nome'])?></span>&nbsp; Blog IPPA</h1>
+        <h1 class="d-flex align-items-center"><span class="rounded-5 p-2" style="background:#56B8E6;" title="<?= $_SESSION['BlogUser_nome'] ?>"><?= Text::perfil($_SESSION['BlogUser_nome']) ?></span>&nbsp; Blog IPPA</h1>
       </a>
 
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>

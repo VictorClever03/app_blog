@@ -18,11 +18,16 @@ class Routers
     $router->get("/cursos", handler:"Home:cursos");
     $router->get("/team", handler:"Home:team");
     $router->get("/blog", handler:"Home:blog");
+    $router->get("/details/{id}", handler:"Blog:details");
     $router->get("/contact", handler:"Home:contact");
     $router->post("/contact", handler:"Home:contact");
     $router->get("/login", handler:"Login:index");
     $router->get("/sair", handler:"Login:sair");
     $router->get("/createUser", handler:"Home:create");
+    $router->get("/comment/edit/{id}/{idPost}", handler:"Blog:editComment");
+    $router->post("/comment/edit/{id}/{idPost}", handler:"Blog:editComment");
+    $router->post("/comment/create/{id}", handler:"Blog:comments");
+    $router->post("/comment/delete/{id}/{idPost}", handler:"Blog:deleteComment");
     
     // autentification
     $router->post("/createUser", handler:"Home:create");

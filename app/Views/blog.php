@@ -1,4 +1,5 @@
-<?php use App\Helpers\Valida;
+<?php 
+use App\Models\user\Posts as total;
 
 ?>
 <main id="main">
@@ -35,14 +36,14 @@
                     </div>
 
                     <h2 class="title">
-                      <a href="blog-details.html"><?= $value['titulo'] ?></a>
+                      <a href="<?=URL?>/details/<?=$value['id_postagens']?>"><?= $value['titulo'] ?></a>
                     </h2>
 
                     <div class="meta-top">
                       <ul>
-                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details.html"><?= $value['nome_u'] ?></a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html"><time datetime="2022-01-01"><?= date('Y-m-d',strtotime($value['create_at'])) ?></time></a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">0 Comments</a></li>
+                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="<?=URL?>/details/<?=$value['id_postagens']?>"><?= $value['nome_u'] ?></a></li>
+                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="<?=URL?>/details/<?=$value['id_postagens']?>"><time datetime="2022-01-01"><?= date('Y-m-d',strtotime($value['create_at'])) ?></time></a></li>
+                        <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="<?=URL?>/details/<?=$value['id_postagens']?>"><?=total::getCountComment0($value['id_postagens'])['total']?> coment..</a></li>
                       </ul>
                     </div>
 
@@ -53,7 +54,7 @@
                     </div>
 
                     <div class="read-more mt-auto align-self-end">
-                      <a href="blog-details.html">Read More <i class="bi bi-arrow-right"></i></a>
+                      <a href="<?=URL?>/details/<?=$value['id_postagens']?>">Ver mais <i class="bi bi-arrow-right"></i></a>
                     </div>
 
                   </article>
@@ -79,13 +80,7 @@
 
         <div class="sidebar ps-lg-4">
 
-          <!-- <div class="sidebar-item search-form">
-            <h3 class="sidebar-title">Search</h3>
-            <form action="" class="mt-3">
-              <input type="text">
-              <button type="submit"><i class="bi bi-search"></i></button>
-            </form>
-          </div>End sidebar search formn -->
+          
 
           <div class="sidebar-item categories">
             <h3 class="sidebar-title">Categorias</h3>
@@ -95,11 +90,7 @@
                   <li><a href="#"><?=$value['nome']?> </a></li>
                 <?php endforeach?>
               <?php endif?>
-              <!-- <li><a href="#">General <span>(25)</span></a></li>
-              <li><a href="#">Travel <span>(5)</span></a></li>
-              <li><a href="#">Design <span>(22)</span></a></li>
-              <li><a href="#">Creative <span>(8)</span></a></li>
-              <li><a href="#">Educaion <span>(14)</span></a></li> -->
+              
             </ul>
           </div><!-- End sidebar categories-->
 
@@ -112,7 +103,7 @@
                   <div class="post-item">
                 <img src="<?=asset($value['imagem'])?>" alt="" class="flex-shrink-0">
                 <div>
-                  <h4><a href="#"><?=$value['titulo']?></a></h4>
+                  <h4><a href="<?=URL?>/details/<?=$value['id_postagens']?>"><?=$value['titulo']?></a></h4>
                   <time datetime="2020-01-01"><?= date('Y-m-d',strtotime($value['create_at'])) ?></time>
                 </div>
               </div><!-- End recent post item-->
