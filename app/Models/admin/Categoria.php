@@ -24,11 +24,10 @@ class Categoria
     }
     
     public function store_c(Array $data){
-        $this->db->query("INSERT INTO categoria(nome, descricao, status) VALUES(:nome, :descricao, :status)");
+        $this->db->query("INSERT INTO categoria(nome, descricao) VALUES(:nome, :desc)");
         
         $this->db->bind(':nome', $data['nome']);
-        $this->db->bind(':descricao', $data['descricao']);
-        $this->db->bind(':status', $data['status']);
+        $this->db->bind(':desc', $data['desc']);
 
 
         if ($this->db->executa() AND $this->db->total()) {
@@ -41,7 +40,7 @@ class Categoria
 
     public function read_c()
     {
-        $this->db->query("SELECT * FROM  categoria");
+        $this->db->query("SELECT * FROM  categoria ORDER BY id_categoria DESC");
 
         if ($this->db->executa() AND $this->db->total()): 
             $resultado=$this->db->resultados();
@@ -54,7 +53,7 @@ class Categoria
     }
     public function read1_c(int $id)
     {
-        $this->db->query("SELECT * FROM  categoria WHERE id=:id");
+        $this->db->query("SELECT * FROM  categoria WHERE id_categoria=:id");
         $this->db->bind(':id',$id);
         if ($this->db->executa() AND $this->db->total()): 
             $resultado=$this->db->resultado();
@@ -79,10 +78,9 @@ class Categoria
     }
     public function update_c(array $dados, int $id)
     {
-        $this->db->query("UPDATE categoria SET nome=:nome , descricao=:descricao , status=:status WHERE id=:id");
+        $this->db->query("UPDATE categoria SET nome=:nome , descricao=:descricao WHERE id_categoria=:id");
         $this->db->bind(':nome',$dados['nome']);
-        $this->db->bind(':descricao',$dados['descricao']);
-        $this->db->bind(':status',$dados['status']);
+        $this->db->bind(':descricao',$dados['desc']);
         $this->db->bind(':id',$id);
         if($this->db->executa() AND $this->db->total()):
             return true;
@@ -92,7 +90,7 @@ class Categoria
     }
     public function delete_c(int $id)
     {
-        $this->db->query('DELETE FROM categoria WHERE id=:id');
+        $this->db->query('DELETE FROM categoria WHERE id_categoria=:id');
         $this->db->bind(':id',$id);
         if($this->db->executa() AND $this->db->total()):
             return true;
@@ -100,16 +98,5 @@ class Categoria
             return false;
         endif;
     }
-    public function storeupload(){
-        $caminho='public/img/undraw_profile_2.svg';
-        $id=$this->db->ultimoid();
-        $this->db->query("INSERT INTO uploads(path,id_usuario) VALUES(:pathh, :id_usuarios)");
-        $this->db->bind(':pathh',$caminho,'');
-        $this->db->bind(':id_usuarios',$id,'');
-        if ($this->db->executa()AND $this->db->total()) {
-            return true;
-        } else {
-            return false;
-        } 
-    }
+   
  }

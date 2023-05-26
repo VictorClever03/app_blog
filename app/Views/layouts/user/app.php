@@ -43,6 +43,8 @@ use App\Helpers\ResumirTexto as Text;
 
 <body class="page-index">
   <?= Sessao::notify("message") ?>
+  <?= Sessao::notify("success") ?>
+  <?= Sessao::notify("error") ?>
 
   <!-- ======= Header ======= -->
   <header id="header" class="header d-flex align-items-center fixed-top">

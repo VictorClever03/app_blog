@@ -35,15 +35,25 @@ class Routers
     $router->namespace("App\Controllers\Admin");
     $router->group("admin");
     $router->get("/", handler:"Login:index");
-    $router->post("/", handler:"Login:index");
     $router->get("/login", handler:"Login:index");
-    $router->post("/login", handler:"Login:index");
     $router->get("/sair", handler:"Login:sair");
     $router->get("/home", handler:"Home:index");
+    $router->get("/posts", handler:"Posts:index");
+    $router->get("/posts/create", handler:"Posts:create");
+    $router->get("/posts/edit/{id}", handler:"Posts:edit");
+    $router->get("/categorias", handler:"Categoria:index");
     $router->get("/config", handler:"Config:index");
+    $router->post("/", handler:"Login:index");
+    $router->post("/login", handler:"Login:index");
     $router->post("/config", handler:"Config:index");
     $router->post("/changename", handler:"Config:changename");
     $router->post("/deleteMessage/{id}", handler:"Home:deleteMessage");
+    $router->post("/cadastrar/categoria", handler:"Categoria:cadastrar");
+    $router->post("/editar/categoria/{id}", handler:"Categoria:edit");
+    $router->post("/deleteCategory/{id}", handler:"Categoria:delete");
+    $router->post("/posts/create", handler:"Posts:create");
+    $router->post("/posts/edit/{id}", handler:"Posts:edit");
+    $router->post("/delete/post/{id}", handler:"Posts:delete");
 
 
 

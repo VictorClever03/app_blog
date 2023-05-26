@@ -41,7 +41,7 @@ use App\Helpers\Sessao;
 </head>
 
 <body>
-<?=Sessao::notify("auth")?>
+<?=Sessao::notify("auth1")?>
   <main>
     <div class="container">
 
