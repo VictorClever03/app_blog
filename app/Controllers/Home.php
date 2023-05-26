@@ -10,10 +10,12 @@ use App\Libraries\Controller;
 class  Home  extends Controller
 {
   private $Data;
+  private $Posts;
   public function __construct()
   {
 
     $this->Data = $this->model("user\Usuarios");
+    $this->Posts = $this->model("user\Posts");
   }
   public function index()
   {
@@ -41,9 +43,15 @@ class  Home  extends Controller
     if (!Sessao::nivel1()) :
       Url::redireciona('home');
     endif;
+    $posts = $this->Posts->getPosts();
+    $Rposts = $this->Posts->getRecentPosts();
+    $cat=$this->Posts->read_c();
+    
+    
+  
     $file = 'blog';
     $title = 'blog';
-    return $this->view('layouts/user/app', compact('file', 'title'));
+    return $this->view('layouts/user/app', compact('file', 'title','posts','cat','Rposts'));
   }
 
   public function team()
