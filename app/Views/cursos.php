@@ -1,20 +1,20 @@
 <main id="main">
 
-    <!-- ======= Breadcrumbs ======= -->
-    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('<?=asset("assets/img/services-header.jpg")?>');">
-      <div class="container position-relative d-flex flex-column align-items-center">
+  <!-- ======= Breadcrumbs ======= -->
+  <div class="breadcrumbs d-flex align-items-center" style="background-image: url('<?= asset("assets/img/services-header.jpg") ?>');">
+    <div class="container position-relative d-flex flex-column align-items-center">
 
-        <h2>Cursos</h2>
-        <ol>
-          <li><a href="<?=URL?>">Home</a></li>
-          <li>Cursos</li>
-        </ol>
+      <h2>Cursos</h2>
+      <ol>
+        <li><a href="<?= URL ?>">Home</a></li>
+        <li>Cursos</li>
+      </ol>
 
-      </div>
-    </div><!-- End Breadcrumbs -->
+    </div>
+  </div><!-- End Breadcrumbs -->
 
-   <!-- ======= Our Services Section ======= -->
-   <section id="services-list" class="services-list">
+  <!-- ======= Our Services Section ======= -->
+  <section id="services-list" class="services-list">
     <div class="container" data-aos="fade-up">
 
       <div class="section-header">
@@ -65,90 +65,95 @@
           </div>
         </div><!-- End Service Item -->
 
-      
+
 
       </div>
 
     </div>
   </section><!-- End Our Services Section -->
 
-    <!-- ======= Services Cards Section ======= -->
-    <section id="services-cards" class="services-cards">
-      <div class="container" data-aos="fade-up">
+  <!-- ======= Services Cards Section ======= -->
+  <section id="services-cards" class="services-cards">
+    <div class="container" data-aos="fade-up">
 
-        <div class="row gy-4">
+      <div class="row gy-4">
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="card-item">
-              <div class="row">
-                <div class="col-xl-5">
-                  <div class="card-bg" style="background-image: url(<?=asset("assets/img/cards-1.jpg")?>);"></div>
-                </div>
-                <div class="col-xl-7 d-flex align-items-center">
-                  <div class="card-body">
-                    <h4 class="card-title">Eligendi omnis sunt veritatis.</h4>
-                    <p>Fuga in dolorum et iste et culpa. Commodi possimus nesciunt modi voluptatem placeat deleniti adipisci. Cum delectus doloribus non veritatis. Officia temporibus illo magnam. Dolor eos et.</p>
-                  </div>
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-item">
+            <div class="row">
+              <div class="col-xl-5">
+                <div class="card-bg" style="background-image: url(<?= asset("img/foto_Leite.JPG") ?>);"></div>
+              </div>
+              <div class="col-xl-7 d-flex align-items-center">
+                <div class="card-body">
+                  <h4 class="card-title">
+                    Electrónica e telecomunicações</h4>
+                  <p>
+                    Electrónica e Telecomunicação podem actuar em várias áreas da Industria e os serviços tradicionalmente ligados à Engenharia Electrónica e Telecomunicações.</p>
                 </div>
               </div>
             </div>
-          </div><!-- End Card Item -->
+          </div>
+        </div><!-- End Card Item -->
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="card-item">
-              <div class="row">
-                <div class="col-xl-5">
-                  <div class="card-bg" style="background-image: url(<?=asset("assets/img/cards-2.jpg")?>);"></div>
-                </div>
-                <div class="col-xl-7 d-flex align-items-center">
-                  <div class="card-body">
-                    <h4 class="card-title">Possimus ut sed velit assumenda</h4>
-                    <p>Sunt deserunt maiores voluptatem autem est rerum perferendis rerum blanditiis. Est laboriosam qui iste numquam laboriosam voluptatem architecto. Est laudantium sunt at quas aut hic. Eum dignissimos.</p>
-                  </div>
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-item">
+            <div class="row">
+              <div class="col-xl-5">
+                <div class="card-bg" style="background-image: url(<?= asset("img/foto_soki.JPG") ?>);"></div>
+              </div>
+              <div class="col-xl-7 d-flex align-items-center">
+                <div class="card-body">
+                  <h4 class="card-title">Informática</h4>
+                  <p>
+                    A Informática é um ramo das ciências da informação e da computação. Estuda os processos de recolha, armazenamento, processamento, transferência e difusão de dados digitais.</p>
                 </div>
               </div>
             </div>
-          </div><!-- End Card Item -->
+          </div>
+        </div><!-- End Card Item -->
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="card-item">
-              <div class="row">
-                <div class="col-xl-5">
-                  <div class="card-bg" style="background-image: url(<?=asset("assets/img/cards-3.jpg")?>);"></div>
-                </div>
-                <div class="col-xl-7 d-flex align-items-center">
-                  <div class="card-body">
-                    <h4 class="card-title">Error beatae dolor inventore aut</h4>
-                    <p>Dicta porro nobis. Velit cum in. Nesciunt dignissimos enim molestiae facilis numquam quae quaerat ipsam omnis. Neque debitis ipsum at architecto officia laboriosam odit. Ut sunt temporibus nulla culpa.</p>
-                  </div>
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="card-item">
+            <div class="row">
+              <div class="col-xl-5">
+                <div class="card-bg" style="background-image: url(<?= asset("img/foto_Dio.JPG") ?>);"></div>
+              </div>
+              <div class="col-xl-7 d-flex align-items-center">
+                <div class="card-body">
+                  <h4 class="card-title">Desenhador Projectista</h4>
+                  <p>
+                    O projetista é o profissional que cria o desenho de itens em geral, ferramentas, equipamentos e uma série de outros materiais que são necessários para o desenvolvimento de produtos específicos..</p>
                 </div>
               </div>
             </div>
-          </div><!-- End Card Item -->
+          </div>
+        </div><!-- End Card Item -->
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="card-item">
-              <div class="row">
-                <div class="col-xl-5">
-                  <div class="card-bg" style="background-image: url(<?=asset("assets/img/cards-4.jpg")?>);"></div>
-                </div>
-                <div class="col-xl-7 d-flex align-items-center">
-                  <div class="card-body">
-                    <h4 class="card-title">Expedita voluptas ut ut nesciunt</h4>
-                    <p>Aut est quidem doloremque voluptatem magnam quis excepturi vero quia. Eum eos doloremque architecto illo at beatae dolore. Fugiat suscipit et sint ratione dolores. Aut aliquid ea dolores libero nobis.</p>
-                  </div>
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="card-item">
+            <div class="row">
+              <div class="col-xl-5">
+                <div class="card-bg" style="background-image: url(<?= asset("img/foto_maby.JPG") ?>);"></div>
+              </div>
+              <div class="col-xl-7 d-flex align-items-center">
+                <div class="card-body">
+                  <h4 class="card-title">Contabilidade e Gestão</h4>
+                  <p>
+                    Contabilidade é uma ciência aplicada, que tem como objetivo medir e avaliar o patrimônio e a realidade econômica de uma entidade, seja esta uma pessoa ou organização.</p>
                 </div>
               </div>
             </div>
-          </div><!-- End Card Item -->
-
-        </div>
+          </div>
+        </div><!-- End Card Item -->
 
       </div>
-    </section><!-- End Services Cards Section -->
 
-    <!-- ======= Testimonials Section ======= -->
-    <section id="testimonials" class="testimonials">
+    </div>
+  </section><!-- End Services Cards Section -->
+
+  <!-- ======= Testimonials Section ======= -->
+  <section id="testimonials" class="testimonials">
     <div class="container" data-aos="fade-up">
 
       <div class="section-header">
@@ -167,12 +172,12 @@
                     <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                   </div>
                   <p>
-                    <?=$value['descricao']?>
+                    <?= $value['descricao'] ?>
                   </p>
                   <div class="profile mt-auto">
                     <img src="<?= asset($value['imagem']) ?>" class="testimonial-img" alt="">
-                    <h3><?=$value['nome']?></h3>
-                    <h4><?=$value['media']?> Valores</h4>
+                    <h3><?= $value['nome'] ?></h3>
+                    <h4><?= $value['media'] ?> Valores</h4>
                   </div>
                 </div>
               </div><!-- End testimonial item -->
@@ -188,4 +193,4 @@
   </section><!-- End Testimonials Section -->
 
 
-  </main><!-- End #main -->
+</main><!-- End #main -->
