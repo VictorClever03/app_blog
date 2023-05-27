@@ -24,7 +24,6 @@ class Routers
     $router->get("/login", handler:"Login:index");
     $router->get("/sair", handler:"Login:sair");
     $router->get("/createUser", handler:"Home:create");
-    $router->get("/comment/edit/{id}/{idPost}", handler:"Blog:editComment");
     $router->post("/comment/edit/{id}/{idPost}", handler:"Blog:editComment");
     $router->post("/comment/create/{id}", handler:"Blog:comments");
     $router->post("/comment/delete/{id}/{idPost}", handler:"Blog:deleteComment");
@@ -47,7 +46,11 @@ class Routers
     $router->get("/posts/create", handler:"Posts:create");
     $router->get("/posts/edit/{id}", handler:"Posts:edit");
     $router->get("/categorias", handler:"Categoria:index");
+    $router->get("/usuarios", handler:"Usuarios:index");
     $router->get("/config", handler:"Config:index");
+    $router->post("/cadastrar/usuario", handler:"Usuarios:create");
+    $router->post("/editar/usuario/{id}", handler:"Usuarios:edit");
+    $router->post("/delete/usuario/{id}/{nivel}", handler:"Usuarios:delete");
     $router->post("/", handler:"Login:index");
     $router->post("/login", handler:"Login:index");
     $router->post("/config", handler:"Config:index");

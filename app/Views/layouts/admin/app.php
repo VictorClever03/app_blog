@@ -152,36 +152,31 @@ use App\Helpers\ResumirTexto as text;
         </ul>
       </li><!-- End Blog Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#users-nav" data-bs-toggle="collapse" href="#">
+      <li class="nav-item ">
+        <a class="nav-link <?=  ucwords($title) == ('Users') ? '' : 'collapsed' ?>" data-bs-target="#users-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-person"></i><span>Usuários</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="users-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="tables-general.html">
-              <i class="bi bi-circle"></i><span>Novo</span>
-            </a>
-          </li>
-          <li>
-            <a href="tables-data.html">
+            <a href="<?=URL?>/admin/usuarios" class="<?=  ucwords($title) == ('Users') ? 'active' : '' ?>">
               <i class="bi bi-circle"></i><span>Listar</span>
             </a>
           </li>
         </ul>
       </li><!-- End Usuarios Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#honras-nav" data-bs-toggle="collapse" href="#">
+      <li class="nav-item ">
+        <a class="nav-link <?=  ucwords($title) == ('Honra') ? '' : 'collapsed' ?>" data-bs-target="#honras-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-award"></i><span>Quadro de honra</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="honras-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="tables-general.html">
+            <a href="<?=URL?>/admin/newH" class="<?=  ucwords($title) == ('Honra') ? 'active' : '' ?>">
               <i class="bi bi-circle"></i><span>Novo</span>
             </a>
           </li>
           <li>
-            <a href="tables-data.html">
+            <a href="<?=URL?>/admin/honrados" class="<?=  ucwords($title) == ('Honra') ? 'active' : '' ?>">
               <i class="bi bi-circle"></i><span>Listar</span>
             </a>
           </li>

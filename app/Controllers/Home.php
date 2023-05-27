@@ -19,9 +19,14 @@ class  Home  extends Controller
   }
   public function index()
   {
+   
+    $Rposts = $this->Posts->getRecentPosts();
+  
+
+
     $file = 'homepage';
     $title = 'home';
-    return $this->view('layouts/user/app', compact('file', 'title'));
+    return $this->view('layouts/user/app', compact('file', 'title','Rposts'));
   }
   public function about()
   {
@@ -121,7 +126,7 @@ class  Home  extends Controller
           Sessao::sms("valid", "Email invalido", "alert alert-danger");
           $dados['error'] = "Preecnha correctamente o email";
         } elseif (Valida::length_senha($dados['senha'])) {
-          Sessao::sms("valid", "Mínimo de caracteres 8", "alert alert-danger");
+          Sessao::sms("valid", "Mínimo de caracteres de senha 8", "alert alert-danger");
           $dados['error'] = "Preencha preencha a senha";
         } elseif ($this->Data->checaEmail($dados['email'])) {
           Sessao::sms("valid", "Email já existente no sistema", "alert alert-danger");

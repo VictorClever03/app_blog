@@ -59,7 +59,7 @@ class Posts
   }
   public function getRecentPosts()
   {
-    $this->db->query("SELECT *, usuarios.nome as nome_u, categoria.nome as nome_c FROM postagens INNER JOIN usuarios ON postagens.usuarios_id=usuarios.id_usuarios INNER JOIN categoria ON postagens.categoria_id=categoria.id_categoria ORDER BY id_postagens DESC LIMIT 5");
+    $this->db->query("SELECT *, usuarios.nome as nome_u, categoria.nome as nome_c FROM postagens INNER JOIN usuarios ON postagens.usuarios_id=usuarios.id_usuarios INNER JOIN categoria ON postagens.categoria_id=categoria.id_categoria ORDER BY id_postagens DESC LIMIT 4");
     if ($this->db->executa() and $this->db->total()) {
       return $this->db->resultados();
     } else {

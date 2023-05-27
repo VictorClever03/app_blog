@@ -36,9 +36,9 @@ class Home
   }
 
   public function getCountUsers(){
-    $this->db->query("SELECT COUNT(id_usuarios) as userTotal FROM usuarios ");
+    $this->db->query("SELECT COUNT(id_usuarios) as userTotal FROM usuarios WHERE id_usuarios!=:id");
         
-        
+        $this->db->bind(":id",$_SESSION['BlogUserA_id']);
         if($this->db->executa() AND $this->db->total()):
             return $this->db->resultado();
         else:

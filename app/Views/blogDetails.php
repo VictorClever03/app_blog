@@ -77,7 +77,10 @@ use App\Helpers\ResumirTexto as Text;
                       <h5 class="d-flex">
                         <a href="#"><?= $value['nome'] ?></a>
                         <?php if ($value['user'] === $_SESSION['BlogUser_id']) : ?>
-                          <a class="reply" href="<?=URL?>/comment/edit/<?=$value['id_coment']?>/<?= $post['id_postagens'] ?>"><i class="bi bi-pencil-square"></i></a>
+                          
+                          <form action="<?=URL?>/comment/edit/<?=$value['id_coment']?>/<?= $post['id_postagens'] ?>" method="post">
+                            <button type="submit" class="text-decoration-none bg-transparent border-0"><a class="reply"><i class="bi bi-pencil-square"></i></a></button>
+                          </form>
                           <form action="<?=URL?>/comment/delete/<?=$value['id_coment']?>/<?= $post['id_postagens'] ?>" method="post">
                             <button type="submit" class="text-decoration-none bg-transparent border-0"><a class="reply"><i class="bi bi-trash3"></i></a></button>
                           </form>
