@@ -98,7 +98,7 @@
           <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div class="team-member">
               <div class="member-img">
-                <img src="<?=asset("assets/img/team/team-1.jpg")?>" class="img-fluid" alt="">
+                <img src="<?=asset("assets/img/iza.jpg")?>" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -107,8 +107,8 @@
                 </div>
               </div>
               <div class="member-info">
-                <h4>Walter White</h4>
-                <span>Chief Executive Officer</span>
+                <h4>Ezequiel Domingos</h4>
+                <span>Técnico Informático</span>
               </div>
             </div>
           </div><!-- End Team Member -->
@@ -116,7 +116,7 @@
           <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="team-member">
               <div class="member-img">
-                <img src="<?=asset("assets/img/team/team-2.jpg")?>" class="img-fluid" alt="">
+                <img src="<?=asset("assets/img/nani.jpg")?>" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -125,8 +125,8 @@
                 </div>
               </div>
               <div class="member-info">
-                <h4>Sarah Jhonson</h4>
-                <span>Product Manager</span>
+                <h4>Ribeiro Paulo</h4>
+                <span>Técnico Informático</span>
               </div>
             </div>
           </div><!-- End Team Member -->

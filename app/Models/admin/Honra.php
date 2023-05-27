@@ -55,11 +55,10 @@ class Honra
   }
   public function update($dados)
   {
-    $this->db->query("UPDATE honra SET nome=:nome, media=:media, descricao=:descricao, imagem=:img");
+    $this->db->query("UPDATE honra SET nome=:nome, media=:media, descricao=:descricao");
     $this->db->bind(":nome", $dados['nome']);
     $this->db->bind(":media", $dados['media']);
     $this->db->bind(":descricao", $dados['desc']);
-    $this->db->bind(":imagem", $dados['img']);
     if ($this->db->executa() and $this->db->total()) :
       return true;
 

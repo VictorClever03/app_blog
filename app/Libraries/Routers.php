@@ -47,6 +47,11 @@ class Routers
     $router->get("/posts/edit/{id}", handler:"Posts:edit");
     $router->get("/categorias", handler:"Categoria:index");
     $router->get("/usuarios", handler:"Usuarios:index");
+    $router->get("/newH", handler:"Honra:create");
+    $router->get("/honrados", handler:"Honra:index");
+    $router->post("/delete/honra/{id}", handler:"Honra:delete");
+    $router->post("/edit/honra/{id}", handler:"Honra:edit");
+    $router->post("/newH", handler:"Honra:create");
     $router->get("/config", handler:"Config:index");
     $router->post("/cadastrar/usuario", handler:"Usuarios:create");
     $router->post("/editar/usuario/{id}", handler:"Usuarios:edit");

@@ -11,22 +11,26 @@ class  Home  extends Controller
 {
   private $Data;
   private $Posts;
+  private $Honra;
   public function __construct()
   {
 
     $this->Data = $this->model("user\Usuarios");
     $this->Posts = $this->model("user\Posts");
+    $this->Honra = $this->model("admin\Honra");
   }
   public function index()
   {
    
     $Rposts = $this->Posts->getRecentPosts();
+    $honra=$this->Honra->honrados();
+    
   
 
 
     $file = 'homepage';
     $title = 'home';
-    return $this->view('layouts/user/app', compact('file', 'title','Rposts'));
+    return $this->view('layouts/user/app', compact('file', 'title','Rposts','honra'));
   }
   public function about()
   {
@@ -39,9 +43,11 @@ class  Home  extends Controller
   }
   public function cursos()
   {
+    $honra=$this->Honra->honrados();
+
     $file = 'cursos';
     $title = 'cursos';
-    return $this->view('layouts/user/app', compact('file', 'title'));
+    return $this->view('layouts/user/app', compact('file', 'title','honra'));
   }
   public function blog()
   {

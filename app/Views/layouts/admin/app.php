@@ -166,12 +166,12 @@ use App\Helpers\ResumirTexto as text;
       </li><!-- End Usuarios Nav -->
 
       <li class="nav-item ">
-        <a class="nav-link <?=  ucwords($title) == ('Honra') ? '' : 'collapsed' ?>" data-bs-target="#honras-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link <?=  ucwords($title) == ('Honra') || ucwords($title) == ('HonraN') ? '' : 'collapsed' ?>" data-bs-target="#honras-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-award"></i><span>Quadro de honra</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="honras-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="<?=URL?>/admin/newH" class="<?=  ucwords($title) == ('Honra') ? 'active' : '' ?>">
+            <a href="<?=URL?>/admin/newH" class="<?=  ucwords($title) == ('HonraN') ? 'active' : '' ?>">
               <i class="bi bi-circle"></i><span>Novo</span>
             </a>
           </li>
