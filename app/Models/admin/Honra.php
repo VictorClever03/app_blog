@@ -53,12 +53,13 @@ class Honra
 
     endif;
   }
-  public function update($dados)
+  public function update($dados,$id)
   {
-    $this->db->query("UPDATE honra SET nome=:nome, media=:media, descricao=:descricao");
+    $this->db->query("UPDATE honra SET nome=:nome, media=:media, descricao=:descricao WHERE id_honra=:id");
     $this->db->bind(":nome", $dados['nome']);
     $this->db->bind(":media", $dados['media']);
     $this->db->bind(":descricao", $dados['desc']);
+    $this->db->bind(":id", $id);
     if ($this->db->executa() and $this->db->total()) :
       return true;
 

@@ -100,7 +100,7 @@ class Honra extends Controller
         
       } else {
         $dados=['nome'=>trim($form['nome']), 'media'=>trim($form['media']), 'desc'=>trim($form['desc'])];
-          $save = $this->Data->update($dados);
+          $save = $this->Data->update($dados,$id);
           if ($save) {
             Sessao::notify("success", "Atualizado com sucesso");
             Url::redireciona("admin/honrados");
